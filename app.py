@@ -139,7 +139,8 @@ if __name__ == "__main__":
     print(" [URL] Buka browser di: http://localhost:5000")
     print("=" * 60)
     
+    port = int(os.environ.get("PORT", 5000))
     if socketio:
-        socketio.run(app, host="0.0.0.0", port=5000, debug=False, allow_unsafe_werkzeug=True)
+        socketio.run(app, host="0.0.0.0", port=port, debug=False, allow_unsafe_werkzeug=True)
     else:
-        app.run(host="0.0.0.0", port=5000, debug=False)
+        app.run(host="0.0.0.0", port=port, debug=False)

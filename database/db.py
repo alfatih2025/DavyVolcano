@@ -7,8 +7,10 @@ import os
 import sqlite3
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-DB_PATH = os.path.join(BASE_DIR, "volcano.db")
-SNAPSHOT_DIR = os.path.join(BASE_DIR, "snapshots")
+DATA_DIR = os.environ.get("DATA_DIR", BASE_DIR)
+
+DB_PATH = os.path.join(DATA_DIR, "volcano.db")
+SNAPSHOT_DIR = os.path.join(DATA_DIR, "snapshots")
 
 def get_conn():
     """Mengembalikan koneksi SQLite."""
